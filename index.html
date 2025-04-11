@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>gps_timefix – Earthworm Module</title>
+  <link rel="icon" href="logo.png">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    header img {
+      height: 80px;
+    }
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9em;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="Project Logo">
+  <h1>gps_timefix</h1>
+  <p>Fix TRACEBUF2 timestamps using local system time – for Earthworm seismic systems</p>
+</header>
+
+<main>
+  <section>
+    <h2>🔧 About</h2>
+    <p><strong>gps_timefix</strong> is an Earthworm module that replaces invalid GPS-derived timestamps in <code>TYPE_TRACEBUF2</code> messages with the local system time, helping stabilize acquisition systems during GPS failures.</p>
+  </section>
+
+  <section>
+    <h2>📦 Features</h2>
+    <ul>
+      <li>Works with any TRACEBUF2 message</li>
+      <li>Non-invasive correction (starttime and endtime only)</li>
+      <li>Input/output via Earthworm rings</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🚀 Quick Start</h2>
+    <pre><code>git clone https://github.com/ricardosifon/gps_timefix.git
+cd gps_timefix
+make -f makefile.unix
+./gps_timefix gps_timefix.d</code></pre>
+  </section>
+
+  <section>
+    <h2>📘 Configuration Example</h2>
+    <pre><code># gps_timefix.d
+MyModuleId        MOD_GPS_TIMEFIX
+RingName          GPS_IN_RING
+OutRingName       GPS_OUT_RING
+HeartBeatInterval 30
+LogFile           2
+GetEventsFrom     INST_WILDCARD MOD_WILDCARD TYPE_TRACEBUF2</code></pre>
+  </section>
+
+  <section>
+    <h2>🔗 External Resources</h2>
+    <ul>
+      <li><a href="https://github.com/earthwormcommunity/earthworm">Earthworm Official GitHub</a></li>
+      <li><a href="https://www.iris.edu/hq/">IRIS Seismic Consortium</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  Created by Ricardo Sifon – Licensed under MIT
+</footer>
+
+</body>
+</html>
