@@ -1,0 +1,10 @@
+# gps_timefix — Registro de cambios
+
+v1.0.0 - 2025-04-11
+-------------------
+- Primera versión pública del módulo gps_timefix.
+- Corrige timestamps de paquetes TYPE_TRACEBUF2 utilizando el reloj local del sistema.
+- Asigna un fake_time continuo por canal (STA.CHAN.NET.LOC) para evitar gaps y overlaps.
+- Compatible con Earthworm bajo sistemas Linux.
+- Incluye ejemplo de configuración (.d), makefile y documentación completa (README).
+
